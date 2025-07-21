@@ -175,7 +175,7 @@ disabled = true
 
 [directory]
 truncation_length = 12
-truncate_to_repo = true 
+truncate_to_repo = false 
 truncation_symbol = '../'
 format = '[ $path ](bg:blue fg:base)'
 read_only = '🔒'
@@ -370,9 +370,9 @@ style = 'bg:pink fg:base'
 truncation_length = 20
 
 [git_status]
-format = '[\[$all_status$ahead_behind\] ]($style)'
+format = '[$all_status$ahead_behind ]($style)'
 style = 'bg:pink fg:base'
-conflicted = ''
+conflicted = 'X'
 ahead = '⇡'
 behind = '⇣'
 diverged = '⇕'
