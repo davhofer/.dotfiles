@@ -1,97 +1,9 @@
 palette = "catppuccin_mocha"
 
-format = """$cmd_duration\
-$username\
-$hostname\
-$localip\
-$shlvl\
-$singularity\
-$kubernetes\
-$directory\
-$vcsh\
-$fossil_branch\
-$fossil_metrics\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
-$hg_branch\
-$pijul_channel\
-$docker_context\
-$package\
-$c\
-$cmake\
-$cobol\
-$daml\
-$dart\
-$deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$fennel\
-$gleam\
-$golang\
-$guix_shell\
-$haskell\
-$haxe\
-$helm\
-$java\
-$julia\
-$kotlin\
-$gradle\
-$lua\
-$nim\
-$nodejs\
-$ocaml\
-$opa\
-$perl\
-$php\
-$pulumi\
-$purescript\
-$python\
-$quarto\
-$raku\
-$rlang\
-$red\
-$ruby\
-$rust\
-$scala\
-$solidity\
-$swift\
-$terraform\
-$typst\
-$vlang\
-$vagrant\
-$zig\
-$buf\
-$nix_shell\
-$conda\
-$meson\
-$spack\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$azure\
-$nats\
-$direnv\
-$env_var\
-$mise\
-$crystal\
-$custom\
-$sudo\
-$line_break\
-$jobs\
-$battery\
-$time\
-$status\
-$os\
-$container\
-$netns\
-$shell\
-$character"""
+format = """$username$hostname$directory$git_branch$git_status$jobs$character"""
+right_format = "$cmd_duration"
+
+# powerline symbols:    
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -231,19 +143,19 @@ disabled = true
 disabled = true
 
 [character]
-success_symbol = '[❯](bold green) '
-error_symbol = '[✗](bold red) '
+success_symbol = '[ ❯](green)'
+error_symbol = '[ ❯](red)'
+vimcmd_symbol = '[ ❮](yellow)'
 
 [cobol]
 disabled = true
 
 [cmd_duration]
-min_time = 0 
+min_time = 0
 show_milliseconds = true 
-format = '''took [$duration]($style)
+format = '''took [$duration](purple)
 '''
-style = 'fg:white bg:bold purple'
-show_notifications = true 
+show_notifications = false 
 min_time_to_notify = 45_000
 
 [conda]
@@ -262,10 +174,12 @@ disabled = true
 disabled = true
 
 [directory]
-truncation_length = 12 
-truncate_to_repo = false 
+truncation_length = 12
+truncate_to_repo = true 
 truncation_symbol = '../'
-style = 'bold yellow'
+format = '[ $path ](bg:blue fg:base)'
+read_only = '🔒'
+read_only_style = 'bg:blue fg:base'
 
 [direnv]
 disabled = true
@@ -326,7 +240,9 @@ disabled = true
 disabled = true
 
 [jobs]
-number_threshold = 1 
+number_threshold = 1
+format = '[ ⚙ $number ](bg:surface1 fg:text)'
+symbol = '⚙ ' 
 
 [julia]
 disabled = true
@@ -434,7 +350,9 @@ disabled = true
 
 [username]
 show_always = false 
-style_user = 'bold #b4befe'
+style_user = 'bg:mauve fg:base'
+style_root = 'bg:red fg:base'
+format = '[ $user ](($style))'
 
 [vagrant]
 disabled = true
@@ -444,6 +362,27 @@ disabled = true
 
 [vcsh]
 disabled = true
+
+[git_branch]
+format = '[ $symbol$branch ]($style)'
+symbol = ' '
+style = 'bg:pink fg:base'
+truncation_length = 20
+
+[git_status]
+format = '[\[$all_status$ahead_behind\] ]($style)'
+style = 'bg:pink fg:base'
+conflicted = ''
+ahead = '⇡'
+behind = '⇣'
+diverged = '⇕'
+up_to_date = ''
+untracked = '?'
+stashed = '$'
+modified = '!'
+staged = '+'
+renamed = '»'
+deleted = '✘'
 
 [zig]
 disabled = true
