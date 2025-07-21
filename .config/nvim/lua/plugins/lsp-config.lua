@@ -11,7 +11,7 @@ local function custom_clangd_on_publish_diagnostics(_, result, ctx, config)
         result.diagnostics = filtered_diagnostics
     end
     -- Call the original on_publish_diagnostics function with the filtered diagnostics
-    vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx, config)
+    vim.lsp.handlers["textDocument/publishDiagnostics"](_, result, ctx, config)
 end
 
 return {
@@ -41,7 +41,8 @@ return {
                     "ruff",
                     "rust_analyzer",
                     "gopls",
-                    "ts_ls"
+                    "ts_ls",
+                    "pyright"
                 },
             })
         end,

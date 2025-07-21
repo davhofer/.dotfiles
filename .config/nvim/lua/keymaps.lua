@@ -19,7 +19,16 @@ vim.keymap.set("n", "<leader>bb", "<C-6>", { desc = "Go back to previously opene
 vim.keymap.set("n", "<leader>v", "lbve", { desc = "Select the word under the cursor" })
 
 -- neo-tree keymaps
-vim.keymap.set("n", "<leader>nn", ":Neotree filesystem left reveal<CR>", { desc = "Open file explorer" })
+vim.keymap.set("n", "<leader>nn", function()
+    -- Clean up null-ls temp files in current file's directory
+    local current_dir = vim.fn.expand("%:p:h")
+    local temp_files = vim.fn.glob(current_dir .. "/.null-ls_*", false, true)
+    for _, file in ipairs(temp_files) do
+        vim.fn.delete(file)
+    end
+    -- Open file explorer
+    vim.cmd("Neotree filesystem left reveal")
+end, { desc = "Open file explorer (and cleanup temp files)" })
 vim.keymap.set("n", "<leader>nc", ":Neotree filesystem left close<CR>", { desc = "Close file explorer" })
 
 -- telescope keymaps

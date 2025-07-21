@@ -1,0 +1,121 @@
+
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+line-length = 100
+show-fixes = true
+src = ["src"]
+
+[format]
+docstring-code-format = true
+skip-magic-trailing-commas = false 
+
+[lint]
+extend-safe-fixes = ["D", "TCH"]
+extend-select = [
+  "A",  # flake8-builtins
+  "B",  # flake8-bugbear
+  "I",  # isort
+  "G",  # flake8-logging-format
+  "N",  # pep8-naming
+  "W",  # pycodestyle-warning
+  "C4",  # flake8-comprehensions
+  "C90",  # mccabe
+  "D",  # pydocstyle
+  "D213",  # multi-line-summary-second-line (off by default in pydocstyle "google' convention)
+  "PT",  # flake8-pytest-style
+  "TD",  # flake8-todo
+  "UP",  # pyupgrade
+  "ARG",  # flake8-unused-arguments
+  "ERA",  # eradicate
+  "FLY",  # flynt
+  "ICN",  # flake8-import-conventions
+  "PERF",  # Perflint
+  "PGH",  # pygrep-hooks
+  "PIE",  # flake8-pie
+  "PL",  # pylint
+  "PTH",  # flake8-use-pathlib
+  "RET",  # flake8-return
+  "RUF",  # Ruff-specific
+  "SIM",  # flake8-simplify
+  "T10",  # flake8-debugger
+  "T20",  # flake8-print
+  "TCH",  # flake8-type-checking
+]
+ignore = [
+    "TD003", # [missing-todo-link]
+]
+
+
+[lint.pydocstyle]
+convention = "google"
+
+
+[lint.isort]
+combine-as-imports = true
+known-first-party = ["py2spack"]
+known-third-party = [
+  "packaging",
+  "requests",
+  "tomli",
+  "typing_extensions",
+]
+lines-after-imports = 2
+order-by-type = true
+required-imports = ["from __future__ import annotations"]
+section-order = [
+  "future",
+  "standard-library",
+  "third-party",
+  "first-party",
+  "tests",
+  "local-folder",
+]
+
+[lint.isort.sections]
+tests = [
+  "tests",
+]
+
+[lint.mccabe]
+max-complexity = 12
+
+#[tool.ruff.lint.per-file-ignores]
+#"tests/**" = [
+#  "D",  # pydocstyle
+#  "PLR2004",  # [magic-value-comparison]
+# "T10",  # flake8-debugger
+#  "T20",  # flake8-print
+#]
+
+[lint.pycodestyle]
+ignore-overlong-task-comments = true
+max-doc-length = 88
+
+
