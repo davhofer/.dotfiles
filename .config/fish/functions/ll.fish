@@ -1,3 +1,3 @@
 function ll
-    eza -la --icons=always --color=always --no-permissions --group-directories-first --changed --git
+    eza -la --icons=always --color=always --no-permissions --group-directories-first --changed --git $argv
 end

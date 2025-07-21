@@ -268,7 +268,7 @@ truncation_symbol = '../'
 style = 'bold yellow'
 
 [direnv]
-disabled = false
+disabled = true
 format = '[\($symbol$loaded\)]($style) '
 symbol = 'direnv '
 style = 'cyan'
