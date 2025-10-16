@@ -17,6 +17,11 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+# load environment variables
+if test -f ~/.env.fish
+    source ~/.env.fish
+end
+
 # direnv
 direnv hook fish | source
 
