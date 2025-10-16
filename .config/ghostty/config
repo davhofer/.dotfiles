@@ -43,7 +43,7 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-theme = catppuccin-mocha
+theme = catppuccin-mocha.conf
 
 # font-family = Roboto Mono for Powerline
 keybind = shift+enter=text:\n
