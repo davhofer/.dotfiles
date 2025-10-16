@@ -53,11 +53,8 @@ return {
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            local lspconfig = require("lspconfig")
-            lspconfig.clangd.setup({
-                keys = {
-                    { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
-                },
+            -- Configure clangd
+            vim.lsp.config('clangd', {
                 root_dir = function(fname)
                     return require("lspconfig.util").root_pattern(
                         "Makefile",
@@ -90,7 +87,9 @@ return {
                     ["textDocument/publishDiagnostics"] = custom_clangd_on_publish_diagnostics,
                 }
             })
-            lspconfig.ltex.setup({
+
+            -- Configure ltex
+            vim.lsp.config('ltex', {
                 capabilities = capabilities,
                 filetypes = {
                     "bib",
@@ -111,19 +110,30 @@ return {
                     -- "text",
                 },
             })
-            lspconfig.ruff.setup({
+
+            -- Configure ruff
+            vim.lsp.config('ruff', {
                 capabilities = capabilities,
             })
-            lspconfig.lua_ls.setup({
+
+            -- Configure lua_ls
+            vim.lsp.config('lua_ls', {
                 capabilities = capabilities,
             })
-            lspconfig.rust_analyzer.setup({
+
+            -- Configure rust_analyzer
+            vim.lsp.config('rust_analyzer', {
                 capabilities = capabilities,
             })
-            lspconfig.gopls.setup({
+
+            -- Configure gopls
+            vim.lsp.config('gopls', {
                 capabilities = capabilities,
             })
-            lspconfig.pyright.setup({
+
+            -- Configure pyright
+            vim.lsp.config('pyright', {
+                capabilities = capabilities,
                 settings = {
                     pyright = {
                         disableOrganizeImports = true, -- Using Ruff
@@ -136,8 +146,22 @@ return {
                     },
                 },
             })
-            lspconfig.ts_ls.setup({
+
+            -- Configure ts_ls
+            vim.lsp.config('ts_ls', {
                 capabilities = capabilities,
+            })
+
+            -- Enable all configured language servers
+            vim.lsp.enable({
+                'clangd',
+                'ltex',
+                'ruff',
+                'lua_ls',
+                'rust_analyzer',
+                'gopls',
+                'pyright',
+                'ts_ls',
             })
         end,
     },
