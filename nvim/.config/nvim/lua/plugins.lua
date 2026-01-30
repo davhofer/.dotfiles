@@ -29,4 +29,6 @@ return {
     -- Better UX
     require("plugins.todo-comments"),
     require("plugins.zen-mode"),
+    require("plugins.render-markdown"),
+    require("plugins.mini-pairs"),
 }
