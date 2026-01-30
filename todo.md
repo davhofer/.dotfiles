@@ -15,3 +15,7 @@ fix hyprland changing keyboard layout when config is newly setup or stowed?? => 
 - integrate https://github.com/folke/sidekick.nvim or ThePrimeagen/99 as a controllable, in terminal LLM? or other llm integration similar to copilot? make overview
 
 - keyboard shortcut to close all popup windows or notifications in neovim
+
+- make a cleaner, nicer interface for the diagnostics. make it better searchable?
+
+- review my autocomment / block comment stuff. can we do this better? use a plugin?
