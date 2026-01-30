@@ -28,5 +28,5 @@ return {
 
     -- Better UX
     require("plugins.todo-comments"),
+    require("plugins.zen-mode"),
 }
-

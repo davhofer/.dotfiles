@@ -210,6 +210,7 @@ vim.keymap.set('v', '<leader>uc', function()
     end,
     { expr = true, desc = "Uncomment a block of code" })
 
+-- insert basic error handling block in go code
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "go",
     callback = function()
@@ -217,3 +218,11 @@ vim.api.nvim_create_autocmd("FileType", {
             { desc = "Add go error handling block." })
     end,
 })
+
+-- todo-comments keymaps
+vim.keymap.set("n", "<leader>td", ":TodoTelescope<CR>",
+    { desc = "Display all TODO, NOTE, FIX, and similar comments in current file." })
+
+-- zen-mode keymaps
+vim.keymap.set("n", "<leader>zen", ":ZenMode<CR>",
+    { desc = "Toggle Zen mode." })
